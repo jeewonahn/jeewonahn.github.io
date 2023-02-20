@@ -1,0 +1,33 @@
+# main links
+main:
+  - title: "Professor"
+    url: /Sang-Wook
+  - title: "Members"
+    url: /members
+  - title: "Teams"
+    url: /teams
+  - title: "Publications"
+    url: /publications/international/journal
+  - title: "Projects"
+    url: /projects
+  - title: "News"
+    url: /news
+  - title: "Contact"
+    url: /contact
+publication:
+  - title: "International"
+    children:
+      - title: "Journal"
+        url: /publications/international/journal
+      - title: "Conference"
+        url: /publications/international/conference
+      - title: "Patent"
+        url: /publications/international/patent
+  - title: "Domestic"
+    children:
+      - title: "Journal"
+        url: /publications/domestic/journal
+      - title: "Conference"
+        url: /publications/domestic/conference
+      - title: "Patent"
+        url: /publications/domestic/patent

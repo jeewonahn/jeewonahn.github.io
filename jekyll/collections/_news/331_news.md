@@ -1,0 +1,10 @@
+---
+title: "The paper 'A Framework for Accurate Community Detection on Signed Networks Using Adversarial Learning' has been accepted in IEEE TKDE"
+date: "2022-12-20"
+last_modified_at: "2022-12-20"
+excerpt: ""
+header:
+  teaser: /assets/images/news/prize.jpg
+---
+\\
+아래 논문이 SCI 저널인 IEEE Transactions on Knowledge and Data Engineering (IEEE TKDE)에 accept 되었습니다. IEEE TKDE 저널은 SCI 저널들 중에서도 상위에 속하는 최상위 저널(Q1)입니다.축하합니다.Title: A Framework for Accurate Community Detection on Signed Networks Using Adversarial LearningAuthor: Yoonsuk Kang, Woncheol Lee, Yeon-Chang Lee, Kyungsik Han and Sang-Wook KimAbstractIn this paper, we propose a framework for embedding-based community detection on signed networks, namely Adversarial learning of Balanced triangle for Community detection, in short ABC. It first represents all the nodes of a signed network as vectors in low-dimensional embedding space and conducts a clustering algorithm (e.g., k-means) on vectors, thereby detecting a community structure in the network. When performing the embedding process, ABC learns only the edges belonging to balanced triangles whose edge signs follow the balance theory, significantly excluding noise edges in learning. To address the sparsity of balanced triangles in a signed network, ABC learns not only the edges in balanced real-triangles but those in balanced virtual-triangles that do not actually exist but are produced by our generator. Finally, ABC employs adversarial learning to generate more-realistic balanced virtual-triangles with less noise edges. Through extensive experiments using seven real-world networks, we validate the effectiveness of (1) learning edges belonging to balanced real/virtual-triangles and (2) employing adversarial learning for signed network embedding. We show that ABC consistently and significantly outperforms the state-of-the-art community detection methods in all datasets.

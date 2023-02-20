@@ -1,0 +1,46 @@
+---
+layout: archive
+---
+<!--Referenced from minimal-mistakes/_layouts/collections.html-->
+
+{{ content }}
+
+
+<!-- BigDas Custom UI (START) -->
+{% assign now = "now" | date: "%Y-%m-%d" %}
+{% assign entries = site[page.collection] | sort: 'period.end' | reverse %}
+{% assign progress_entries = entries | where_exp: 'entry', 'entry.period.end >= now' %}
+{% assign finished_entries = entries | where_exp: 'entry', 'entry.period.end < now' %}
+
+<ul class="taxonomy__index">
+  <li>
+    <a href="#progress">
+      <strong>Progress</strong> <span class="taxonomy__count">{{ progress_entries | size }}</span>
+    </a>
+  </li>
+  <li>
+    <a href="#finished">
+      <strong>Finished</strong> <span class="taxonomy__count">{{ finished_entries | size }}</span>
+    </a>
+  </li>
+</ul>
+
+<section id="progress" class="taxonomy__section">
+  <h2 class="archive__subtitle">Progress</h2>
+  <div class="entries-{{ page.entries_layout | default: 'list' }}">
+    {% for post in progress_entries %}
+      {% include project_entry type=page.entries_layout %}
+    {% endfor %}
+  </div>
+  <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+</section>
+<section id="finished" class="taxonomy__section">
+    <h2 class="archive__subtitle">Finished</h2>
+    <div class="entries-{{ page.entries_layout | default: 'list' }}">
+      {% for post in finished_entries %}
+        {% include project_entry type=page.entries_layout %}
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+  </section>
+<!-- BigDas Custom UI (END) -->

@@ -1,0 +1,58 @@
+#Sample - Professor information
+professor:
+  Gildong Hong:
+    name     : "Gildong Hong"
+    name_ko  : "홍길동"
+    avatar   : "/assets/images/member/current/gildonghong.jpg" 
+    bio      : "Professor of Dept. of Computer Science, Yonsei University"
+    location : "Dept. of Computer Science, Yonsei University, 50, Yonsei-ro, Seodaemun-gu, Seoul, Republic of Korea"
+    phone    : "+82-2-0000-0000"
+    email    : "email-address"
+current:
+  phd: #Sample - phd information
+    Yonghee Kim:
+      name     : "Yonghee Kim"
+      name_ko  : "김영희"
+      avatar   : "/assets/images/member/current/yongheekim.jpg" #해당 연구원의 프로필 사진
+      bio      : "박사 1학기"
+      email    : "email-address"
+      team     : "Deep Data Mining"
+      team_url : "/teams"         
+  ms: #Sample - ms information
+    Cheolsoo Kim:
+      name     : "Cheolsoo Kim"
+      name_ko  : "김철수"
+      avatar   : "/assets/images/member/current/cheolsookim.jpg" 
+      bio      : "석사 1학기"
+      email    : "email-address"
+      team     : "Deep Data Mining"
+      team_url : "/teams"     
+  intern: #Sample - intern information
+    Minjoo Kim:
+      name     : "Minjoo Kim"
+      name_ko  : "김민주"
+      avatar   : "/assets/images/member/current/cheolsookim.jpg" 
+      email    : "email-address"
+    
+  staff: #Sample - staff information
+    Minjae Kim:
+      name     : "Minjae Kim"
+      name_ko  : "김민재"
+      avatar   : "/assets/images/member/current/minjaekim.jpg" 
+      email    : "email-address"
+
+alumni: #Sample - alumni informaiton
+    Chaewon Kim:
+      name     : "Chaewon Kim"
+      name_ko  : "김채원"
+      type     : "phd"
+      bio      : "박사"
+      status   : "졸업"
+      avatar   : "/assets/images/member/chaewonkim.jpg"
+      email    : "email-address"
+      semester  : 4
+      startdate : "admission-date"
+      date      : "graduate-date"
+      career    : "career-info"
+      # cv        :  "https://~"
+    

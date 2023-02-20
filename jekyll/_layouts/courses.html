@@ -1,0 +1,59 @@
+---
+layout: archive
+---
+<!--
+  BigDas Custom Layout
+  A list of courses that are sorted and grouped by 'year'.
+  Referenced from minimal-mistakes/_layouts/posts.html
+-->
+
+{{ content }}
+
+<!-- BigDas Custom UI (START) -->
+{% assign entries = site.data.courses %}
+{% if page.sort_by == 'year' %}
+  {% if page.sort_order == 'reverse' %}
+    {% assign entries = entries | sort: 'year' | reverse %}
+  {% else %}
+    {% assign entries = entries | sort: 'year' %}
+  {% endif %}
+{% endif %}
+{% assign entries = entries | group_by_exp: 'entry', 'entry.year' %}
+
+<ul class="taxonomy__index">
+  {% for year in entries %}
+    <li>
+      <a href="#{{ year.name }}">
+        <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% for year in entries %}
+  <section id="{{ year.name }}" class="taxonomy__section">
+    <h2 class="archive__subtitle">{{ year.name }}</h2>
+    <div class="entries-{{ page.entries_layout | default: 'list' }}">
+      <table class="BigDas__page-professor-courses-table">
+        <thead>
+          <tr>
+            <th style="text-align: left; width: 100px">Semester</th>
+            <th style="text-align: left">Type</th>
+            <th style="text-align: left">Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in year.items %}
+            <tr>
+              <td style="text-align: left; width: 100px">{{ item.semester }}</td>
+              <td style="text-align: left">{{ item.type }}</td>
+              <td style="text-align: left">{{ item.title }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+  </section>
+{% endfor %}
+<!-- BigDas Custom UI (END) -->

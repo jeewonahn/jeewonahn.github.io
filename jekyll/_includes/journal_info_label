@@ -1,0 +1,24 @@
+{% assign info = "" %}
+{% if include.journal.title != nil %}
+{% assign info = info | append: include.journal.title %}
+{% endif %}
+{% if include.journal.volume != nil %}
+{% assign info = info | append: ", Volume " %}
+{% assign info = info | append: include.journal.volume %}
+{% endif %}
+{% if include.journal.type != nil %}
+{% assign info = info | append: ", " %}
+{% assign info = info | append: include.journal.type %}
+{% endif %}
+{% if include.journal.number != nil %}
+{% assign info = info | append: " " %}
+{% assign info = info | append: include.journal.number %}
+{% endif %}
+{% if include.journal.startpage != nil and include.journal.endpage != nil %}
+{% assign info = info | append: ", " %}
+{% assign info = info | append: include.journal.startpage %}
+{% assign info = info | append: "-" %}
+{% assign info = info | append: include.journal.endpage %}
+{% assign info = info | append: " pp." %}
+{% endif %}
+{{ info }}

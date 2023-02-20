@@ -1,0 +1,55 @@
+---
+layout: archive
+---
+<!--
+  BigDas Custom Layout
+  All list of collections that classified by 'category' or 'categories'.
+-->
+
+{{ content }}
+<!-- Initialize categories array -->
+{% assign categories = '' %}
+{% for collection in site.collections %}
+  {% for doc in collection.docs %}
+    {% if doc.category %}
+      {% unless categories contains doc.category %}
+        {% assign categories = categories | append: doc.category | append: '|' %}
+      {% endunless %}
+    {% endif %}
+    {% if doc.categories %}
+      {% for category in doc.categories %}
+        {% unless categories contains category %}
+          {% assign categories = categories | append: category | append: '|' %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% assign categories = categories | split: '|' %}
+
+<ul class="taxonomy__index">
+  {% for category in categories %}
+    <li>
+      <a href="#{{ category | slugify }}">
+        <strong>{{ category }}</strong> <span class="taxonomy__count">{{ i }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% for category in categories %}
+  <section id="{{ category | slugify | downcase }}" class="taxonomy__section">
+    <h2 class="archive__subtitle">{{ category }}</h2>
+    <div class="entries-{{ page.entries_layout | default: 'list' }}">
+      {% for collection in site.collections %}
+        {% unless collection.label == "publication_archives" %}
+          {% for post in collection.docs %}
+            {% if post.category == category or post.categories contains category %}
+              {% include archive-single.html type=page.entries_layout %}
+            {% endif %}
+          {% endfor %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+{% endfor %}

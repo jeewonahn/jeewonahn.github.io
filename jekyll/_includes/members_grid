@@ -1,0 +1,74 @@
+<!--Referenced from minimal-mistakes/_includes/feature_row.html-->
+<div class="feature__wrapper">
+  {% assign members = site.data.members[include.member_type] %}
+  {% assign members = members[include.member_position] | default: members %}
+  {% for member_obj in members %}
+    {% assign member = member_obj[1] %}
+    {% if member.url contains "://" %}
+      {% capture member_url %}{{ member.url }}{% endcapture %}
+    {% else %}
+      {% capture member_url %}{{ member.url | relative_url }}{% endcapture %}
+    {% endif %}
+
+    <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+      <div class="archive__item">
+        {% if member.avatar %}
+          <div class="BigDas__members-image-wrapper">
+            <div class="BigDas__members-image">
+              <img
+                src=
+                  {% if member.avatar contains "://" %}
+                    "{{ member.avatar }}"
+                  {% else %}
+                    "{{ member.avatar | relative_url }}"
+                  {% endif %}
+                alt="{% if member.alt %}{{ member.alt }}{% endif %}">
+            </div>
+            {% if member.avatar_caption %}
+              <span class="archive__item-caption">{{ member.avatar_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="archive__item-body">
+          {% if member.name %}
+            <p class="archive__item-title BigDas__members-title">
+                {% if member.cv %}
+                  <a href="{{ member.cv }}" aria-hidden="true" target="_blank" class="BigDas__members-cv-btn">
+                    {{ member.name }}
+                  </a>
+                {% else %}
+                  {{ member.name }}
+                {% endif %}
+            </p>
+          {% endif %}
+          <div class="author__urls-wrapper">
+            <ul class="BigDas__members-contents social-icons">
+              {% if member.bio %}
+                <li class="BigDas__members-contents-item">
+                  <i class="fas fa-fw fa-book" aria-hidden="true"></i> {{ member.bio }}
+                </li>
+              {% endif %}
+
+              {% if member.team %}
+                <li class="BigDas__members-contents-item">
+                  <a href="{{ member.team_url }}" itemprop="url">
+                    <i class="fas fa-fw fa-users" aria-hidden="true"></i> {{ member.team }}
+                  </a>
+                </li>
+              {% endif %}
+
+              {% if member.email %}
+                <li class="BigDas__members-contents-item">
+                  {% assign email_icon_tag = '<i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i>' %}
+                  <!--{% assign email_label = site.data.ui-text[site.locale].email_label | default: 'Email' %}-->
+                  {{ member.email | protect_email: email_icon_tag }}
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+</div>

@@ -1,0 +1,10 @@
+---
+title: "The paper 'Phishing URL Detection: A Network-based Approach Robust to Evasion' has been accepted in a top conference, ACM CCS 2022"
+date: "2022-08-29"
+last_modified_at: "2022-08-29"
+excerpt: ""
+header:
+  teaser: /assets/images/news/prize.jpg
+---
+\\
+아래 논문이 top conference 인 ACM Conference on Computer and Communications Security (ACM CCS 2022) 에 accept 되었습니다.<br>ACM CCS는 BK21 최우수국제학술대회목록에서 impact factor (IF) 4점으로 인정 받는 computer science (CS) 분야의 최상위 학술대회입니다.<br>축하합니다.<br>Title: Phishing URL Detection: A Network-based Approach Robust to Evasion<br>Author: Taeri Kim*, Noseong Park*, Jiwon Hong, and Sang-Wook Kim<br>Abstract<br>Many cyberattacks start with disseminating phishing URLs. When clicking these phishing URLs, the victim’s private information is leaked to the attacker. There have been proposed several machine learning methods to detect phishing URLs. However, it still remains under-explored to detect phishing URLs with evasion, i.e., phishing URLs that pretend to be benign by manipulating patterns. In many cases, the attacker i) reuses prepared phishing web pages because making a completely brand-new set costs non-trivial expenses, ii) prefers hosting companies that do not require private information and are cheaper than others, iii) prefers shared hosting for cost efficiency, and iv) sometimes uses benign domains, IP addresses, URL string patterns to evade existing detection methods. Inspired by those behavioral characteristics, we present a network-based inference method to accurately detect phishing URLs camouflaged with legitimate patterns, i.e., robust to evasion. In the network approach, a phishing URL will be still identified as phishy even after evasion unless a majority of its neighbors in the network are evaded at the same time. Our method consistently shows better detection performance throughout various experimental tests than state-of-the-art methods, e.g., F-1 of 0.89 for our method vs. 0.84 for the best feature-based method.

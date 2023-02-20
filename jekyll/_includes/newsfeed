@@ -1,0 +1,14 @@
+<!--
+  BigDas Custom Component
+  Newsfeed component that used on home index page.
+-->
+{% assign news = site.news | sort: 'date' | reverse %}
+
+<div class="BigDas__newsfeed-layout">
+  <div class="entries-grid BigDas__newsfeed-entries-grid">
+    {%- for post in news limit:4 -%}
+      {% include newsfeed-single.html type="grid" %}
+    {%- endfor -%}
+  </div>
+  <a href="/news" class="btn btn--primary">More</a>
+</div>

@@ -1,0 +1,34 @@
+{% assign author_name_lang = "en" %}
+{% if include.categories contains "domestic" %}
+  {% assign author_name_lang = "ko" %}
+{% endif %}
+
+{% assign authors = "" %}
+{% for author in include.authors %}
+  {% assign author_name = author[0] %}
+  {% assign author_obj = author[1] %}
+
+  {% if author_name_lang == "ko" %}
+    {% if author_obj.name_ko %}
+      {% assign author_name_ko = author_obj.name_ko %}
+      {% assign authors = authors | append: author_name_ko | append: "|" %}
+    {% else %}
+      {% assign author_name_ko = site.data.members.professor[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = site.data.members.alumni[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = site.data.members.alumni[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = site.data.members.alumni[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = site.data.members.current.phd[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = site.data.members.current.ms[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = site.data.members.current.intern[author_name].name_ko | default: author_name_ko %}
+      {% assign author_name_ko = author_name_ko | default: author_name %}
+      {% assign authors = authors | append:author_name_ko | append: "|" %}
+      {% assign author_name_ko = false %}
+    {% endif %}
+
+  {% elsif author_name_lang == "en" %}
+    {% assign authors = authors | append: author_name | append: '|' %}
+  {% endif %}
+
+{% endfor %}
+{% assign authors = authors | split: '|' %}
+{{ authors | join: ', ' }}

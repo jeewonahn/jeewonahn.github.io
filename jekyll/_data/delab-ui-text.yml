@@ -1,0 +1,38 @@
+# BigDas Custom ui-text for localization.
+# Referenced by
+# https://mmistakes.github.io/minimal-mistakes/docs/ui-text/
+
+# English (default)
+# -----------------
+en: &DEFAULT_EN
+  period_label: "Period:"
+  period_start_default: "Undefined"
+  period_end_default: "Proceeding"
+  fund_type_label: "Fund Type:"
+  fund_total_label: "Fund Total:"
+  fund_lab_label: "Fund Lab:"
+  download_label: "Download:"
+  write_label: "Post:"
+en-US:
+  <<: *DEFAULT_EN
+en-CA:
+  <<: *DEFAULT_EN
+en-GB:
+  <<: *DEFAULT_EN
+en-AU:
+  <<: *DEFAULT_EN
+
+
+# Korean
+# ------
+ko: &DEFAULT_KO
+  period_label: "기간:"
+  period_start_default: "미정"
+  period_end_default: "진행중"
+  fund_type_label: "과제 종류:"
+  fund_total_label: "과제 총액:"
+  fund_lab_label: "과제 연구실 금액:"
+  download_label: "다운로드:"
+  write_label: "작성:"
+ko-KR:
+  <<: *DEFAULT_KO

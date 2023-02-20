@@ -1,0 +1,35 @@
+---
+layout: archive
+---
+<!--
+  BigDas Custom Layout
+  A list of collection that denotes its date information.
+  Referenced from minimal-mistakes/_layouts/collections.html
+-->
+
+{{ content }}
+
+
+<!-- BigDas Custom UI (START) -->
+<div class="entries-{{ page.entries_layout }}">
+  {% assign entries = site[page.collection] %}
+
+  {% if page.sort_by == 'title' %}
+    {% if page.sort_order == 'reverse' %}
+      {% assign entries = entries | sort: 'title' | reverse %}
+    {% else %}
+      {% assign entries = entries | sort: 'title' %}
+    {% endif %}
+  {% elsif page.sort_by == 'date' %}
+    {% if page.sort_order == 'reverse' %}
+      {% assign entries = entries | sort: 'date' | reverse %}
+    {% else %}
+      {% assign entries = entries | sort: 'date' %}
+    {% endif %}
+  {% endif %}
+
+  {%- for post in entries -%}
+    {% include date_entry %}
+  {%- endfor -%}
+</div>
+<!-- BigDas Custom UI (END) -->

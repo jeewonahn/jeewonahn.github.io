@@ -1,0 +1,9 @@
+###Sample###
+- year      : 2022
+  semester  : 2
+  type      : "Graduate"
+  type_kor  : "일반대학원"
+  title     : "Database System"
+  title_kor : "데이타베이스 시스템"
+  professor : "Professor_name"
+  assistent : "Assistant_name"

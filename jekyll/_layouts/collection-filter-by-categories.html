@@ -1,0 +1,48 @@
+---
+layout: archive
+---
+<!--
+  BigDas Custom Layout
+  A list of collections that are classified by 'category' or 'categories'.
+  Collections are sorted and grouped by 'year'.
+  Referenced from minimal-mistakes/_layouts/posts.html
+-->
+
+{{ content }}
+
+<!-- BigDas Custom UI (START) -->
+{% assign entries = site[page.target_collection] %}
+{% if page.sort_by == 'date' %}
+  {% if page.sort_order == 'reverse' %}
+    {% assign entries = entries | sort: 'date' | reverse %}
+  {% else %}
+    {% assign entries = entries | sort: 'date' %}
+  {% endif %}
+{% endif %}
+{% for category in page.categories %}
+  {% assign entries = entries | where_exp: 'entry', 'entry.categories contains category' %}
+{% endfor %}
+{% assign entries = entries | group_by_exp: 'entry', 'entry.date | date: "%Y"' %}
+
+<ul class="taxonomy__index">
+  {% for year in entries %}
+    <li>
+      <a href="#{{ year.name }}">
+        <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% for year in entries %}
+  <section id="{{ year.name }}" class="taxonomy__section">
+    <h2 class="archive__subtitle">{{ year.name }}</h2>
+    <div class="entries-{{ page.entries_layout | default: 'list' }}">
+      {% for post in year.items %}
+        {% include {{ page.render }} type=page.entries_layout %}
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+  </section>
+{% endfor %}
+<!-- BigDas Custom UI (END) -->

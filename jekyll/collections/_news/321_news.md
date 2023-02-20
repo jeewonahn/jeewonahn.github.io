@@ -1,0 +1,10 @@
+---
+title: "The paper 'THOR: Self-Supervised Temporal Knowledge Graph Embedding via Three-Tower Graph Convolutional Networks' has been accepted in a top conference, IEEE ICDM 2022"
+date: "2022-09-02"
+last_modified_at: "2022-09-02"
+excerpt: ""
+header:
+  teaser: /assets/images/news/prize.jpg
+---
+\\
+아래 논문이 top conference 인 IEEE International Conference on Data Mining (IEEE ICDM 2022) 에 accept 되었습니다.<br>IEEE ICDM은 BK21 최우수국제학술대회목록에서 impact factor (IF) 3점으로 인정 받는 computer science (CS) 분야의 최상위 학술대회입니다.<br>축하합니다.<br>Title: THOR: Self-Supervised Temporal Knowledge Graph Embedding via Three-Tower Graph Convolutional Networks<br>Author: Yeon-Chang Lee*, JaeHyun Lee*, Dongwon Lee, and Sang-Wook Kim<br>Abstract The goal of temporal knowledge graph embedding (TKGE) is to represent the entities and relations in a given temporal knowledge graph (TKG) as low-dimensional vectors (i.e., embeddings), which preserve both semantic information and temporal dynamics of the factual information. In this paper, we posit that the intrinsic difficulty of existing TKGE methods lies in the lack of information in KG snapshots with timestamps, each of which contains the facts that co-occur at a specific timestamp. To address this challenge, we propose a novel self-supervised TKGE approach, THOR (Three-tower grapH cOnvolution netwoRks (GCNs)), which extracts latent knowledge from TKGs by jointly leveraging both temporal and atemporal dependencies between entities and the structural dependency between relations. THOR learns the embeddings of entities and relations, obtained from three-tower GCNs, via the following two objectives: (1) to maximize the likelihood of the facts in a TKG; (2) to address the lack of information in a TKG based on auxiliary supervision signals of each entity. Our experiments on three real-world datasets demonstrate that THOR significantly outperforms 13 competitors in terms of TKG completion tasks. THOR yields up to 9.37% higher accuracy, compared to the best competitor.

@@ -1,0 +1,44 @@
+{% assign main_info = "" %}
+{% if include.conference.title != nil %}
+{% assign main_info = main_info | append: include.conference.title %}
+{% endif %}
+{% if include.conference.volume != nil %}
+{% assign main_info = main_info | append: ", Volume " %}
+{% assign main_info = main_info | append: include.conference.volume %}
+{% endif %}
+{% if include.conference.startpage != nil and include.conference.endpage != nil %}
+{% assign main_info = main_info | append: ", " %}
+{% assign main_info = main_info | append: include.conference.startpage %}
+{% assign main_info = main_info | append: "-" %}
+{% assign main_info = main_info | append: include.conference.endpage %}
+{% assign main_info = main_info | append: " pp." %}
+{% endif %}
+{% if main_info != "" %}
+{{ main_info }}
+{% endif %}
+
+{% assign loc_info = "" %}
+{% if include.conference.city != nil and include.conference.country != nil%}
+{% assign loc_info = loc_info | append: include.conference.city %}
+{% assign loc_info = loc_info | append: ", " %}
+{% assign loc_info = loc_info | append: include.conference.country %}
+{% elsif include.conference.city != nil %}
+{% assign loc_info = loc_info | append: include.conference.city %}
+{% elsif include.conference.country != nil %}
+{% assign loc_info = loc_info | append: include.conference.country %}
+{% endif %}
+{% if loc_info != "" %}
+{{ loc_info }}
+{% endif %}
+
+{% assign date_info = "" %}
+{% if include.conference.startdate != nil and include.conference.enddate != nil %}
+{% assign fmted_startdate = include.conference.startdate | date: '%B %e, %Y' %}
+{% assign fmted_enddate = include.conference.enddate | date: '%B %e, %Y' %}
+{% assign date_info = date_info | append: fmted_startdate %}
+{% assign date_info = date_info | append: " - " %}
+{% assign date_info = date_info | append: fmted_enddate %}
+{% endif %}
+{% if date_info != "" %}
+{{ date_info }}
+{% endif %}
